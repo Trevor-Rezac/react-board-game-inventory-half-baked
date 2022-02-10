@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { signIn, signUp } from './services/fetch-utils.js';
 
 export default function AuthPage(props) {
-  // you'll need to track the form state of the email and password
-  const [signUpEmail, setSignUpEmail] = useState('');
-  const [signUpPassword, setSignUpPassword] = useState('');
-  const [signInEmail, setSignInEmail] = useState('');
-  const [signInPassword, setSignInPassword] = useState('');
+  // you'll need to track the form state of the email and password  
+  const [emailForm, setEmailForm] = useState('');
+  const [passwordForm, setPasswordForm] = useState('');
+
 
   async function handleSignIn(e) {
     e.preventDefault();
@@ -20,7 +19,11 @@ export default function AuthPage(props) {
     // sign the user up using the form state
     e.preventDefault();
     // set the user in App.js state using the correct prop callback. If you did the ternary right in App.js, this should automatically redirect the user to the board game list
+    
   }
+
+
+  // console.log('||', 'Email', emailForm, 'Password', passwordForm);
 
   return (
     <div className='auth'>
@@ -30,12 +33,12 @@ export default function AuthPage(props) {
         <label>
             Email
           {/* on change, update the form state for email */}
-          <input required type="email" name="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
+          <input required type="email" name="email" onChange={(e) => setEmailForm(e.target.value)}/>
         </label>
         <label>
             Password
           {/* on change, update the form state for password */}
-          <input required type="password" name="password" />
+          <input required type="password" name="password" onChange={(e) => setPasswordForm(e.target.value)}/>
         </label>
         <button>Sign In</button>
         {/* on clicking sign up, sign the user up using the function defined above */}
