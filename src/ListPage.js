@@ -9,6 +9,7 @@ export default function ListPage() {
   return (
     <div className='list games'>
       {/* map through the games in state and render Game components */}
+      <h3>List Page</h3>
     </div>
   );
 }
