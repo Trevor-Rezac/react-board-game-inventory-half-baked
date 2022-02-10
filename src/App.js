@@ -3,7 +3,7 @@ import { getUser } from './services/fetch-utils';
 import {
   BrowserRouter as Router,
   Switch,
-  NavLink,
+  Link,
   Route,
   Redirect,
 } from 'react-router-dom';
@@ -34,6 +34,8 @@ export default function App() {
           {/* if there is a user in state, render out a link to the board games list, the create page, and add a button to let the user logout */}
           {currentUser && 
             <ul>
+              <Link to="/board-games">Games List</Link>
+              <Link to="/create">Create</Link>
               <button onClick={handleLogout}>Logout</button>
             </ul>
           }
@@ -51,9 +53,11 @@ export default function App() {
             </Route>
             <Route exact path="/board-games/:id">
               {/* if there is a user, render the detail page. Otherwise, redirect to the home route/auth page */}
+              {currentUser ? <DetailPage /> : <Redirect to="/"/>}
             </Route>
             <Route exact path="/create">
               {/* if there is a user, render the create page. Otherwise, redirect to the home route/auth page */}
+              {currentUser ? <CreatePage /> : <Redirect to="/" />}
             </Route>
           </Switch>
         </main>
