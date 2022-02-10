@@ -25,7 +25,7 @@ export default function ListPage() {
       <h3>List Page</h3>
       <div className='list games'>
         {/* map through the games in state and render Game components */}
-        {games.map((game, i) => <Game key={`${game}-${i}`}/>)}
+        {games.map((game, i) => <Game key={`${game}-${i}`} game={game} />)}
       </div>
     </>
   );
