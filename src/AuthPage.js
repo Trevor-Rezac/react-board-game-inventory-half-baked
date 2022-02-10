@@ -30,7 +30,7 @@ export default function AuthPage(props) {
         <label>
             Email
           {/* on change, update the form state for email */}
-          <input required type="email" name="email" />
+          <input required type="email" name="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
         </label>
         <label>
             Password
