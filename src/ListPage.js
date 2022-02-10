@@ -5,8 +5,8 @@ import Game from './Game';
 export default function ListPage() {
   // you'll need some state to hold onto the array of games
   const [games, setGames] = useState([]);
+  // console.log('||', games);
   
-  console.log('||', games);
   // fetch the games on load and inject them into state
   useEffect(() => {
     async function fetchGames() {
@@ -21,9 +21,12 @@ export default function ListPage() {
 
   
   return (
-    <div className='list games'>
-      {/* map through the games in state and render Game components */}
+    <>
       <h3>List Page</h3>
-    </div>
+      <div className='list games'>
+        {/* map through the games in state and render Game components */}
+        {games.map((game, i) => <Game key={`${game}-${i}`}/>)}
+      </div>
+    </>
   );
 }
