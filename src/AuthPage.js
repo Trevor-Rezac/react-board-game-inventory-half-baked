@@ -36,12 +36,22 @@ export default function AuthPage({ setCurrentUser }) {
         <label>
             Email
           {/* on change, update the form state for email */}
-          <input required type="email" name="email" onChange={(e) => setEmailForm(e.target.value)}/>
+          <input 
+            required type="email" 
+            name="email" 
+            onChange={(e) => setEmailForm(e.target.value)}
+            value={emailForm}
+          />
         </label>
         <label>
             Password
           {/* on change, update the form state for password */}
-          <input required type="password" name="password" onChange={(e) => setPasswordForm(e.target.value)}/>
+          <input 
+            required type="password" 
+            name="password" 
+            onChange={(e) => setPasswordForm(e.target.value)}
+            value={passwordForm}
+          />
         </label>
         <button>Sign In</button>
         {/* on clicking sign up, sign the user up using the function defined above */}
